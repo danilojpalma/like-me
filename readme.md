@@ -1,4 +1,4 @@
-# Mi Repertorio - Aplicación Musical CRUD
+# Like Me - Blog básico
 
 Este proyecto es una implementación básica de un blog donde los usuarios pueden crear publicaciones (posts) y otros usuarios pueden interactuar con ellas mediante el sistema de "likes". El proyecto utiliza Node.js con Express para el backend, PostgreSQL para la base de datos, y HTML/CSS/JavaScript para el frontend.
 
@@ -24,11 +24,11 @@ Para instalar la API, se deben seguir los siguientes pasos:
 
 1. Clonar el repositorio
 ```bash
-git clone https://github.com/danilojpalma/like_me.git
+git clone https://github.com/danilojpalma/like-me.git
 ```
 2. Acceder al directorio del repositorio.
 ```bash
-cd mi_repertorio
+cd like-me
 ```
 3. Instalar las dependencias del proyecto.
 ```bash
@@ -38,9 +38,8 @@ npm install
 
 Para crear la base de datos, se debe ejecutar el siguiente comando en el cliente de PostgreSQL:
 ```sql
-CREATE DATABASE repertorio ;
-CREATE TABLE canciones (id SERIAL, titulo VARCHAR(50), artista 
-VARCHAR(50), tono VARCHAR(10))
+CREATE TABLE posts (id SERIAL, usuario VARCHAR(25), url VARCHAR(1000),
+descripcion VARCHAR(255), likes INT);
 ```
 5. Configurar la conexión a la base de datos.
 
@@ -50,7 +49,7 @@ Debes crear un archivo en la carpeta raiz con el nombre `.env`, en donde se debe
 DB_HOST = localhost
 DB_USER = postgres
 DB_PASSWORD = contraseña
-DB_DATABASE = repertorio
+DB_DATABASE = likeme
 
 ```
 ### Uso:
@@ -63,34 +62,22 @@ npm run dev
 
 Abra su navegador web y navegue hasta http://localhost:3000.
 
-### Agregar una nueva canción:
+### Cómo agregar un nuevo post:
 
-- Ingrese el título, artista y tono de la canción en los campos de entrada respectivos.
-- Haga clic en el botón "Agregar".
-- Ver todas las canciones:
-
-La tabla de canciones mostrará la lista de canciones en su repertorio.
-
-### Editar una canción:
-
-- Haga clic en el botón "Editar" para la canción que desea modificar.
-- Actualice los detalles de la canción en los campos de entrada.
-- Haga clic en el botón "Editar" nuevamente (actualizará la canción con los nuevos detalles).
+- Introduce el usuario, la URL de una imagen y la descripción en los campos correspondientes.
+- Haz clic en el botón "Crear".
+- Los posts aparecerán a medida que se vayan añadiendo.
+- Al hacer clic en el corazón de cada post, podrás darle 'like'.
 
 
-### Eliminar una canción:
-
-Haga clic en el botón "Eliminar" para la canción que desea eliminar.
-Confirme la eliminación en el cuadro de diálogo de alerta.
-
-## Código fuente
+### Código fuente
 
 El código fuente de la API se encuentra en el siguiente repositorio de GitHub:
 
-[https://github.com/danilojpalma/mi_repertorio.git](https://github.com/danilojpalma/mi_repertorio.git)
+[https://github.com/danilojpalma/like-me.git](https://github.com/danilojpalma/like-me.git)
 
 En el repositorio, se pueden encontrar los archivos de configuración de la base de datos (`db.js`) y las consultas a la base de datos (`queries.js`).
 
-## Licencia
+### Licencia
 
 Este proyecto se encuentra bajo la licencia MIT. Para más información, consultar el archivo `LICENSE.md`.
